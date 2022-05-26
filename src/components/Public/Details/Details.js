@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Key from "../../../config/key";
+import Key from "../../../config/Key";
 import ImagePath from "../../../config/ImagePath";
-import { Container } from "../styles";
+import { Container, Title  } from "../Details/styles";
 
 function Details(){
-    const { idContent } = useParams()
+    const { id } = useParams()
     const [content, setContent] = useState({});
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/${idContent}?api_key=${
+        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${
             Key}&language=en-US&page=1`)
             .then(response => response.json())
             .then(data => {
                 const{title, poster_path, overview, release_date} = data
 
                 const content = {
-                    idContent, 
+                    id, 
                     title,
                     sinopse: overview,
                     image: `${ImagePath}${poster_path}`,
@@ -24,11 +24,10 @@ function Details(){
                 }
                 setContent(content);
             })
-    }, [idContent])
+    }, [id])
 
     return(
         <Container className="Details">
-            <h1>Detalhes</h1>
             <div className="content">
                 <img src={content.image} alt={content.sinopse}></img>
                 <div className="details">

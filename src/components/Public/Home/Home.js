@@ -1,5 +1,5 @@
-import { Container, ContentList, Content, Title } from "../styles";
-import Key from "../../../config/key"
+import { Container, ContentList, Content, Title } from "../Styles/styles";
+import Key from "../../../config/Key"
 import {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";
 import ImagePath from "../../../config/ImagePath";
@@ -8,7 +8,7 @@ function Home(){
     const [content, setContent] = useState([]);
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${
+        fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${
             Key}&language=en-US&page=1`)
             .then(response => response.json())
             .then(data => {

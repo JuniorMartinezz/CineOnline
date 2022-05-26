@@ -1,28 +1,26 @@
 import { Link } from "react-router-dom";
-import './Nav.css';
-import { ContentList, Content, Container } from "../../Public/styles";
+import { Container } from "./nav-style";
 
 function Nav() {
     return (
         <Container className="Nav">
-            <ContentList className="nav justify-content-center bg-dark p-2" id="listBar">
-                <Content className="nav-item">
+            <nav className="nav justify-content-center bg-dark p-2" id="list-bar">
+                <div className="nav-item">
                     <Link className="nav-link" to='/Public/'>Página inicial</Link>
-                </Content>
-                <Content className="nav-item">
+                </div>
+                <div className="nav-item">
                     <Link className="nav-link" to='/Public/movies'>Filmes</Link>
-                </Content>
-                <Content className="nav-item">
+                </div>
+                <div className="nav-item">
                     <Link className="nav-link" to='/Public/series'>Séries</Link>
-                </Content>
-                <Content className="nav-item">
+                </div>
+                <div className="nav-item">
                     <Link className="nav-link" to='/Public/contact'>Contato</Link>
-                </Content>
+                </div>
                 <form>
                     <input id="inputSearch" className="form-control" type="text" placeholder="Digite o que deseja assistir..."/>
                 </form>
-            </ContentList>
-
+            </nav>
         </Container>
 
     )

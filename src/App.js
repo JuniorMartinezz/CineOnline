@@ -2,17 +2,18 @@ import Header from "./components/Templates/Header/Header";
 import Nav from "./components/Templates/Nav/Nav";
 import Section from "./components/Templates/Section/Section";
 import Footer from "./components/Templates/Footer/Footer";
-import {BrowserRouter} from "react-router-dom";
 import './App.css'
+import {
+  BrowserRouter as Router} from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <Nav />
-      <Section />
-      <Footer />
-    </BrowserRouter> 
+      <Router>
+        <Header />
+        <Nav />
+        <Section />
+        <Footer />
+      </Router>
   );
 }
 

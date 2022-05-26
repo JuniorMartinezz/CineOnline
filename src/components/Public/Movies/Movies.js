@@ -1,5 +1,5 @@
-import { Container, ContentList, Content, Title } from "../styles";
-import Key from "../../../config/key";
+import { Container, ContentList, Content, Title } from "../Styles/styles";
+import Key from "../../../config/Key";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ImagePath from "../../../config/ImagePath";

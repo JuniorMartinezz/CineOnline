@@ -1,3 +1,3 @@
-var key = "b7b98d6c0f008cb8db1604bf09ca0936";
+var Key = "b7b98d6c0f008cb8db1604bf09ca0936";
 
-export default key;
+export default Key;
