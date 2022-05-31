@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Key from "../../../config/Key";
-import ImagePath from "../../../config/ImagePath";
-import { Container, Title  } from "../Details/styles";
+import Key from "../../../../config/Key";
+import ImagePath from "../../../../config/ImagePath";
+import { Container } from "./styles";
 
-function Details(){
+function MovieDetails(){
     const { id } = useParams()
     const [content, setContent] = useState({});
 
@@ -41,4 +41,4 @@ function Details(){
     )
 }
 
-export default Details;
+export default MovieDetails;

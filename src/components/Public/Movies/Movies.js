@@ -1,4 +1,4 @@
-import { Container, ContentList, Content, Title } from "../Styles/styles";
+import { Container, ContentList, Title, Content } from "./styles";
 import Key from "../../../config/Key";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -9,19 +9,22 @@ function Movies(){
 
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/latest?api_key=${Key}&language=en-US`)
-        .then(response => response.json())
-        .then(data => setMovies(data.results))
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.results)
+                setMovies(data.results)
+            })
     }, [])
 
     return(
         <Container className="Movies">
             <Title>Movies</Title>
             <ContentList>
-                {movies.map(movie => {
+                {movies.map(movies => {
                     return(
-                        <Content key={movie.id}>
-                        <Link to={`/details/${movie.id}`}><img src={`${ImagePath}${movie.poster_path}`} alt={movie.alt}></img></Link>
-                        <span>{movie.title}</span>
+                        <Content key={movies.id}>
+                            <Link to={`/MovieDetails/${movies.id}`}><img src={`${ImagePath}${movies.poster_path}`} alt={movies.alt}></img></Link>
+                            <span>{movies.title}</span>
                         </Content>
                     )
                 })}
