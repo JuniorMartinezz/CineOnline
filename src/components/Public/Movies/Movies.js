@@ -1,14 +1,15 @@
 import { Container, ContentList, Title, Content } from "./styles";
-import Key from "../../../config/Key";
+import { Key } from "../../../config/Key";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ImagePath from "../../../config/ImagePath";
+import { ImagePath } from "../../../config/ImageURL";
+import { Api } from "../../../services/Api";
 
 function Movies(){
     const [movies, setMovies] = useState([]); // o nosso dado inicial eh uma array, que retorna a lista de filmes da api
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/latest?api_key=${Key}&language=en-US`)
+        fetch(`${Api}movie/popular?api_key=${Key}&language=en-US`)
             .then(response => response.json())
             .then(data => {
                 console.log(data.results)

@@ -1,7 +1,2 @@
-import axios from "axios";
+export const Api = "https://api.themoviedb.org/3/";
 
-const api = axios.create({
-  baseURL: "https://api.github.com",
-});
-
-export default api;

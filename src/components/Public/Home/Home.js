@@ -1,17 +1,17 @@
 import { Container, ContentList, Content, Title } from "../Styles/styles";
-import Key from "../../../config/Key"
-import {useState, useEffect} from 'react'
+import { Key } from "../../../config/Key";
+import {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
-import ImagePath from "../../../config/ImagePath";
+import { ImagePath } from "../../../config/ImageURL";
+import { Api } from "../../../services/Api";
 
 function Home(){
     const [content, setContent] = useState([]);
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${Key}&language=en-US&page=1`)
+        fetch(`${Api}trending/all/day?api_key=${Key}`)
             .then(response => response.json())
             .then(data => {                
-                console.log(data.results)
                 setContent(data.results)
             })
     }, [])

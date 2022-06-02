@@ -1,8 +1,23 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
     padding: 4rem 0;
+    position: relative;
+    z-index: 5;
+
+    .bg{
+        background: no-repeat;
+        position: absolute;
+        background-size: cover;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        opacity: .3;
+        box-shadow: inset 100px -100px 100px 10px #ffffff;
+    }
+
 
     h1{
         margin: 3rem 0;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Key from "../../../../config/Key";
-import ImagePath from "../../../../config/ImagePath";
+import { useParams, Link } from "react-router-dom";
+import { Key } from "../../../../config/Key";
+import { BgPath, ImagePath } from "../../../../config/ImageURL";
 import { Container } from "./styles";
 
 function MovieDetails(){
@@ -13,14 +13,15 @@ function MovieDetails(){
             Key}&language=en-US&page=1`)
             .then(response => response.json())
             .then(data => {
-                const{title, poster_path, overview, release_date} = data
+                const{title, poster_path, overview, release_date, backdrop_path} = data
 
                 const content = {
                     id, 
                     title,
                     sinopse: overview,
                     image: `${ImagePath}${poster_path}`,
-                    releaseDate: release_date
+                    releaseDate: release_date,
+                    backdropPath: `${BgPath}${backdrop_path}`
                 }
                 setContent(content);
             })
@@ -28,13 +29,19 @@ function MovieDetails(){
 
     return(
         <Container className="Details">
+            <div
+                className="bg"    
+                style={{backgroundImage: `url(${content.backdropPath})`}}        
+                >
+
+            </div>
             <div className="content">
                 <img src={content.image} alt={content.sinopse}></img>
                 <div className="details">
                     <h1>{content.title}</h1>
                     <span>Sinopse: {content.sinopse}</span>
                     <span className="release-date"> Release date: {content.releaseDate}</span>
-                    <button>Go Back</button>
+                    <Link to='/Public/'><button>Go Back</button></Link>
                 </div>
             </div>
         </Container>
